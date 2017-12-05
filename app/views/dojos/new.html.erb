@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dojo Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <h1>New Dojo</h1>
+
+        <% if flash[:error] %>
+            <p style="color: red"><%= flash[:error] %></p>
+        <% end %>
+
+        <form action="/dojos" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+            Branch: <input type="text" name="dojo[branch]"><br><br>
+            Street: <input type="text" name="dojo[street]"><br><br>
+            City: <input type="text" name="dojo[city]"><br><br>
+            State: <input type="text" name="dojo[state]"><br><br>
+            <input type="submit" value="Create">
+        </form>
+
+        <br>
+        <a href="/dojos">Go Back</a>
+
+    </body>
+</html>
