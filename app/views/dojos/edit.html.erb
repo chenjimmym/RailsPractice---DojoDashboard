@@ -8,24 +8,22 @@
     </head>
     <body>
 
-        <h1>New Dojo</h1>
-
-        <% if flash[:error] %>
-            <p style="color: red"><%= flash[:error] %></p>
-        <% end %>
-
-        <form action="/dojos" method="post">
+        <h1>Edit: <%= @dojo.branch %></h1>
+                     
+        <form action="/dojos/<%= @dojo.id %>" method="post">
+            <input type="hidden" name="_method" value="patch">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
+            
             Branch: <input type="text" name="dojo[branch]"><br><br>
             Street: <input type="text" name="dojo[street]"><br><br>
             City: <input type="text" name="dojo[city]"><br><br>
             State: <input type="text" name="dojo[state]"><br><br>
-            <input type="submit" value="Create">
+            <input type="submit" value="Update">
         </form>
-
+            
         <br>
-        <a href="/dojos">Home</a>
+        <p><a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>">Show</a></p>
+            
 
     </body>
 </html>

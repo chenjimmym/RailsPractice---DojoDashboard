@@ -16,6 +16,38 @@ class DojosController < ApplicationController
             redirect_to "/dojos"
         end
     end
+    def destroy
+        Dojo.destroy(params[:id])
+        redirect_to "/dojos"
+    end
+    def show
+        @dojo = Dojo.find(params[:id])
+        render "show"
+    end
+    def edit
+        @dojo = Dojo.find(params[:id])
+        render "edit"
+    end
+    def update
+        dojo = Dojo.find(params[:id])
+
+        if params[:dojo][:branch]
+            dojo.branch = params[:dojo][:branch]
+        end
+        if params[:dojo][:street]
+            dojo.street = params[:dojo][:street]
+        end
+        if params[:dojo][:city]
+            dojo.city = params[:dojo][:city]
+        end
+        if params[:dojo][:state]
+            dojo.state = params[:dojo][:state]
+        end
+        
+        dojo.save
+        
+        redirect_to "/dojos/#{params[:id]}"
+    end
 
 
     private
