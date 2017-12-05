@@ -12,7 +12,29 @@
         <br>
         <h3>Address: <%= @dojo.street %></h3>
         <h3>City: <%= @dojo.city %> State: <%= @dojo.state %></h3>
-        <p><a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>/edit">Edit</a></p>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% @students.each { |student| %>
+                    <tr>
+                        <td><%= student.first_name %></td>
+                        <td><%= student.last_name %></td>
+                        <td><%= student.email %></td>
+                        <td> <a href="/dojos/<%= @dojo.id %>/students/<%= student.id %>">Show</a> | <a href="">Edit</a> | <a href="" data-method="delete">Destroy</a></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+        <p><a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>/edit">Edit</a> | <a href="">Add Student</a></p>
 
     </body>
 </html>

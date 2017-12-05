@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= @student[0].first_name %></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <h1><%= @dojo.branch %>'s <%= @student[0].first_name %> <%= @student[0].last_name %></h1>
+        <h3><%= @student[0].email %></h3><br>
+
+        <h3>Cohort:</h3>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+ 
+                    <tr>
+                        <td><%= @student[0].first_name %></td>
+                        <td><%= @student[0].last_name %></td>
+                        <td><%= @student[0].email %></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        <p><a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>/students/<%= @student[0].id %>/edit">Edit</a> | <a href="">Add Student</a></p>
+
+    </body>
+</html>
